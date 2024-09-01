@@ -1,10 +1,10 @@
 #include <iostream>
-#include "CListaTienda.hpp"
+#include "CControladora.hpp"
 using namespace std;
 //Me tarde 4 horas, tengo que mejorar mi velocidad
 int main() {
     int opcion;
-    ListaProductos* lista = new ListaProductos();
+    Controladora* lista = new Controladora();
     do {
         
         cout << "\n--------- FlowerFull S.A.C, ---------";

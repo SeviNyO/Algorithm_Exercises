@@ -4,15 +4,15 @@
 #include "CProducto.hpp"
 using namespace std;
 
-class ListaProductos {
+class Controladora {
 private:
     Producto** listaProductos;
     Proveedor** listaProveedores;
     int nproductos;
     int nproveedores;
 public:
-    ListaProductos();
-    ~ListaProductos();
+    Controladora();
+    ~Controladora();
     void insertarProducto(Producto*);
     void insertarProveedor(Proveedor*);
     void modificar(int);
@@ -21,13 +21,13 @@ public:
     void eliminarHerbalife();
     void reporteNatura();
 };
-ListaProductos::ListaProductos() {
+Controladora::Controladora() {
     this->listaProductos = nullptr;
     this->nproductos = 0;
     this->listaProveedores = nullptr;
     this->nproveedores = 0;
 }
-ListaProductos::~ListaProductos() {
+Controladora::~Controladora() {
     for (int i = 0; i < this->nproductos; ++i) {
         delete this->listaProductos[i];
     }
@@ -37,7 +37,7 @@ ListaProductos::~ListaProductos() {
     }
     delete[] this->listaProveedores;
 }
-void ListaProductos::insertarProducto(Producto* nuevoProducto) {
+void Controladora::insertarProducto(Producto* nuevoProducto) {
     Producto** temp = new Producto * [nproductos + 1];
     for (int i = 0; i < this->nproductos; ++i) {
         temp[i] = this->listaProductos[i];
@@ -132,7 +132,7 @@ void ListaProductos::insertarProducto(Producto* nuevoProducto) {
     this->listaProductos = temp;
     ++this->nproductos;
 }
-void ListaProductos::insertarProveedor(Proveedor* nuevoProveedor) {
+void Controladora::insertarProveedor(Proveedor* nuevoProveedor) {
     Proveedor** temp = new Proveedor * [nproveedores + 1];
     for (int i = 0; i < this->nproveedores; ++i) {
         temp[i] = this->listaProveedores[i];
@@ -165,7 +165,7 @@ void ListaProductos::insertarProveedor(Proveedor* nuevoProveedor) {
     this->listaProveedores = temp;
     ++this->nproveedores;
 }
-void ListaProductos::modificar(int i) {
+void Controladora::modificar(int i) {
     bool existe = false;
     int posicion;
     for (int j = 0; j < this->nproductos; ++j) {
@@ -255,7 +255,7 @@ void ListaProductos::modificar(int i) {
                 break;
             case 6:
                 while (true) {
-                    cout << "\nCategoria: [A][B][C]"; cin >> categoria;
+                    cout << "\nCategoria: [A][B][C] en MAYUSCULA"; cin >> categoria;
                     categoria = tolower(categoria);
                     if (categoria == 'A' || categoria == 'B' || categoria == 'C') {
                         this->listaProductos[posicion]->setCategoria(categoria); break;
@@ -293,7 +293,7 @@ void ListaProductos::modificar(int i) {
         }
     }
 }
-void ListaProductos::eliminarVencidos() {
+void Controladora::eliminarVencidos() {
     for (int i = 0; i < nproductos; ++i) {
         if (this->listaProductos[i]->getAnio() < 2020) {
             delete this->listaProductos[i];
@@ -306,7 +306,7 @@ void ListaProductos::eliminarVencidos() {
     }
 
 }
-void ListaProductos::reporteStock() {
+void Controladora::reporteStock() {
     cout << "---------------- PRODUCTOS EN STOCK ----------------";
     int sinstock = 0;
     for (int i = 0; i < this->nproductos; ++i) {
@@ -319,7 +319,7 @@ void ListaProductos::reporteStock() {
     if (sinstock == 0) cout << "\nNo hay productos en stock";
 }
 
-void ListaProductos::eliminarHerbalife(){
+void Controladora::eliminarHerbalife(){
     for (int i = 0; i < nproductos; ++i) {
         if (this->listaProductos[i]->getProveedor()->getNombre() == "Herbalife") {
             delete this->listaProductos[i];
@@ -331,15 +331,17 @@ void ListaProductos::eliminarHerbalife(){
         }
     }
 }
-void ListaProductos::reporteNatura(){
-    cout << "---------------- PRODUCTOS PROV. NATURA ----------------";
-    int sinNatura = 0;
+void Controladora::reporteNatura(){
+    cout << "---------------- PRODUCTOS PROV. NATURA y CATEGORIA A----------------";
+    int sinNaturaA = 0;
     for (int i = 0; i < this->nproductos; ++i) {
-        if (this->listaProductos[i]->getProveedor()->getNombre() == "Natura") {
-            this->listaProductos[i]->mostrar();
-            cout << "\n--------------------------------------------";
-            ++sinNatura;
+        if(this->listaProductos[i]->getCategoria() == 'A'){
+            if (this->listaProductos[i]->getProveedor()->getNombre() == "Natura") {
+                this->listaProductos[i]->mostrar();
+                cout << "\n--------------------------------------------";
+                ++sinNaturaA;
+            }
         }
     }
-    if (sinNatura == 0) cout << "\nNo hay productos del proveedor Natura";
+    if (sinNaturaA == 0) cout << "\nNo hay productos CATEGORIA A del proveedor Natura";
 }
