@@ -1,10 +1,10 @@
-#pragma
+#pragma once
 #include <iostream>
-#include "funcionesValidacion.hpp"
-#include <CProducto.hpp>
+#include <string>
+#include "CProducto.hpp"
 using namespace std;
 
-class ListaProductos{
+class ListaProductos {
 private:
     Producto** listaProductos;
     Proveedor** listaProveedores;
@@ -19,23 +19,25 @@ public:
     void eliminarVencidos();
     void reporteStock();
 };
-ListaProductos::ListaProductos(){
+ListaProductos::ListaProductos() {
     this->listaProductos = nullptr;
     this->nproductos = 0;
+    this->listaProveedores = nullptr;
+    this->nproveedores = 0;
 }
-ListaProductos::~ListaProductos(){
-    for(int i = 0; i < this->nproductos; ++i){
+ListaProductos::~ListaProductos() {
+    for (int i = 0; i < this->nproductos; ++i) {
         delete this->listaProductos[i];
     }
     delete[] this->listaProductos;
-    for(int i = 0; i < this->nproveedores; ++i){
+    for (int i = 0; i < this->nproveedores; ++i) {
         delete this->listaProveedores[i];
     }
     delete[] this->listaProveedores;
 }
-void ListaProductos::insertarProducto(Producto* nuevoProducto){
-    Producto** temp = new Producto*[nproductos + 1];
-    for(int i = 0; i < this->nproductos; ++i){
+void ListaProductos::insertarProducto(Producto* nuevoProducto) {
+    Producto** temp = new Producto * [nproductos + 1];
+    for (int i = 0; i < this->nproductos; ++i) {
         temp[i] = this->listaProductos[i];
     }
     int IdProducto, cantidad, anio;
@@ -44,25 +46,26 @@ void ListaProductos::insertarProducto(Producto* nuevoProducto){
     double precio;
     string proveedor;
 
-    cout << "\nId Producto: "; cin >> IdProducto;
-    while(true){
+    while (true) {
+        cout << "\nId Producto: "; cin >> IdProducto;
         if (IdProducto >= 0) {
-            nuevoProducto->setId(IdProducto); 
-        } else cout << "Id del producto debe ser positivo";
+            nuevoProducto->setId(IdProducto); break;
+        }
+        else cout << "Id del producto debe ser positivo";
     }
-    
-    while(true){
+
+    while (true) {
         cout << "\nCantidad: "; cin >> cantidad;
-        if (cantidad >= 0){
+        if (cantidad >= 0) {
             nuevoProducto->setCantidad(cantidad);
             break;
         }
         else cout << "La cantidad debe ser positiva";
     }
 
-    while(true){
+    while (true) {
         cout << "\nAnio de Vencimiento: "; cin >> anio;
-        if(anio > 1900){
+        if (anio > 1900) {
             nuevoProducto->setAnio(anio);
             break;
         }
@@ -72,59 +75,70 @@ void ListaProductos::insertarProducto(Producto* nuevoProducto){
     cin.ignore();
     cout << "\nNombre: "; getline(cin, Nombre);
     nuevoProducto->setNombre(Nombre);
-    while(true){
+    while (true) {
         int temp;
-        cout << "\nTipo: [1] Polvo - [2] Liquido"; cin >> temp;
-        if(temp == 1){
+        cout << "\nTipo: [1] Polvo - [2] Liquido --->"; cin >> temp;
+        if (temp == 1) {
             nuevoProducto->setTipo("Polvo");
             break;
-        } else if(temp == 2){
+        }
+        else if (temp == 2) {
             nuevoProducto->setTipo("Liquido");
             break;
-        } else{
+        }
+        else {
             cout << "\nIngresa una opcion valida";
         }
     }
-    
-    while (true){
-        cout << "\nCategoria: [A][B][C]"; cin >> categoria;
+
+    while (true) {
+        cout << "\nCategoria: [A][B][C] ---> "; cin >> categoria;
         categoria = tolower(categoria);
-        if(categoria == 'A' || categoria == 'B' || categoria == 'C'){
-            nuevoProducto->setCategoria(categoria); break;
-        } else{
+        if (categoria == 'a' || categoria == 'b' || categoria == 'c') {
+            nuevoProducto->setCategoria(categoria);
+            break;
+        }
+        else {
             cout << "\nIntroduce una categoria valida";
         }
     }
-    
+
     cout << "\nPrecio: "; cin >> precio;
-        if (cantidad >= 0){
-            nuevoProducto->setPrecio(precio);
-        }
-        else cout << "El precio debe ser positivo";
-    
+    if (cantidad >= 0) {
+        nuevoProducto->setPrecio(precio);
+    }
+    else cout << "El precio debe ser positivo";
+
     cout << "\nProveedor:";
     int eleccion;
-    for(int i = 0; i < this->nproveedores; ++i){
+    for (int i = 0; i < this->nproveedores; ++i) {
         cout << "\n[" << i << "]" << this->listaProveedores[i]->getNombre();
     }
-    cout << "\n"; cin >> eleccion;
-    nuevoProducto->setProveedor(this->listaProveedores[eleccion]);
-    
+    if (this->nproveedores > 0) {
+        cout << "\n"; cin >> eleccion;
+        nuevoProducto->setProveedor(this->listaProveedores[eleccion]);
+    }
+    else {
+        cout << "\nNo hay proveedores aun, agregalos en el menu!";
+        cout << "\nNo se logro agregar el producto";
+        return;
+    }
     cout << "\nProducto agregado exitosamente....";
-        
+
     temp[nproductos] = nuevoProducto;
     delete[] this->listaProductos;
     this->listaProductos = temp;
     ++this->nproductos;
 }
-void ListaProductos::insertarProveedor(Proveedor* nuevoProveedor){
-    Proveedor** temp = new Proveedor*[nproveedores + 1];
-    for(int i = 0; i < this->nproveedores; ++i){
+void ListaProductos::insertarProveedor(Proveedor* nuevoProveedor) {
+    Proveedor** temp = new Proveedor * [nproveedores + 1];
+    for (int i = 0; i < this->nproveedores; ++i) {
         temp[i] = this->listaProveedores[i];
     }
     int Ruc, telefono;
     string nombre, Razon_social, categoria, direccion;
     cout << "\n----------- AGREGAR PROVEEDOR -----------";
+    cin.ignore();
     cout << "\nNombre: ";
     getline(cin, nombre);
     cout << "\nRazon social: ";
@@ -149,19 +163,29 @@ void ListaProductos::insertarProveedor(Proveedor* nuevoProveedor){
     this->listaProveedores = temp;
     ++this->nproveedores;
 }
-void ListaProductos::modificar(int i){
-    if(i < 0 || i >= this->nproductos){
-        cout << "\nIngrese un indice dentro del rango (0 - " << this->nproductos << ")";
-    } else{
-    int IdProducto, cantidad, anio;
-    string Nombre, tipo;
-    char categoria;
-    double precio;
-    string proveedor;
+void ListaProductos::modificar(int i) {
+    bool existe = false;
+    int posicion;
+    for (int j = 0; j < this->nproductos; ++j) {
+        if (listaProductos[j]->getId() == i) {
+            existe = true;
+            posicion = j;
+            break;
+        }
+    }
+    if (!existe) {
+        cout << "\nLa ID ingresada no existe, intente de nuevo: "; return;
+    }
+    else {
+        int IdProducto, cantidad, anio;
+        string Nombre, tipo;
+        char categoria;
+        double precio;
+        string proveedor;
         int opcion;
-        cout << "\nProducto a modificar: "; 
-        this->listaProductos[i]->mostrar();
-        while(true){
+        cout << "\nProducto a modificar: ";
+        this->listaProductos[posicion]->mostrar();
+        while (true) {
             cout << "\n----------- MENU PARA MODIFICAR -----------";
             cout << "\n[1] IdProducto: ";
             cout << "\n[2] Cantidad: ";
@@ -172,33 +196,34 @@ void ListaProductos::modificar(int i){
             cout << "\n[7] Precio:";
             cout << "\n[8] Proveedor: ";
             cout << "\n[9] Salir ";
+            cout << "\n----->"; cin >> opcion;
             switch (opcion)
             {
             case 1:
-                while(true){
+                while (true) {
                     cout << "\nId Producto: "; cin >> IdProducto;
                     if (IdProducto >= 0) {
-                        this->listaProductos[i]->setId(IdProducto); 
+                        this->listaProductos[posicion]->setId(IdProducto);
                         break;
                     }
                     else cout << "Id del producto debe ser positivo";
                 }
                 break;
             case 2:
-                while(true){
+                while (true) {
                     cout << "\nCantidad: "; cin >> cantidad;
-                    if (cantidad >= 0){
-                        this->listaProductos[i]->setCantidad(cantidad);
+                    if (cantidad >= 0) {
+                        this->listaProductos[posicion]->setCantidad(cantidad);
                         break;
                     }
                     else cout << "La cantidad debe ser positiva";
                 }
                 break;
             case 3:
-                while(true){
+                while (true) {
                     cout << "\nAnio de Vencimiento: "; cin >> anio;
-                    if(anio > 1900){
-                        this->listaProductos[i]->setAnio(anio);
+                    if (anio > 1900) {
+                        this->listaProductos[posicion]->setAnio(anio);
                         break;
                     }
                     else cout << "Fecha muy antigua, debe ser posterior a 1900";
@@ -207,80 +232,88 @@ void ListaProductos::modificar(int i){
             case 4:
                 cin.ignore();
                 cout << "\nNombre: "; getline(cin, Nombre);
-                this->listaProductos[i]->setNombre(Nombre);
+                this->listaProductos[posicion]->setNombre(Nombre);
                 break;
             case 5:
                 int temp;
-                while(true){
+                while (true) {
                     cout << "\nTipo: [1] Polvo - [2] Liquido"; cin >> temp;
-                    if(temp == 1){
-                        this->listaProductos[i]->setTipo("Polvo");
+                    if (temp == 1) {
+                        this->listaProductos[posicion]->setTipo("Polvo");
                         break;
-                    } else if(temp == 2){
-                        this->listaProductos[i]->setTipo("Liquido");
+                    }
+                    else if (temp == 2) {
+                        this->listaProductos[posicion]->setTipo("Liquido");
                         break;
-                    } else{
+                    }
+                    else {
                         cout << "\nIngresa una opcion valida";
                     }
                 }
                 break;
             case 6:
-                while (true){
+                while (true) {
                     cout << "\nCategoria: [A][B][C]"; cin >> categoria;
                     categoria = tolower(categoria);
-                    if(categoria == 'A' || categoria == 'B' || categoria == 'C'){
-                        this->listaProductos[i]->setCategoria(categoria); break;
-                    } else{
+                    if (categoria == 'A' || categoria == 'B' || categoria == 'C') {
+                        this->listaProductos[posicion]->setCategoria(categoria); break;
+                    }
+                    else {
                         cout << "\nIntroduce una categoria valida";
                     }
                 }
                 break;
             case 7:
                 cout << "\nPrecio: "; cin >> precio;
-                    if (cantidad >= 0){
-                        this->listaProductos[i]->setPrecio(precio);
-                        break;
-                    }
-                    else cout << "El precio debe ser positivo";
+                if (precio >= 0) {
+                    this->listaProductos[posicion]->setPrecio(precio);
+                    break;
+                }
+                else cout << "El precio debe ser positivo";
                 break;
             case 8:
                 cout << "\nProveedor:";
                 int eleccion;
-                for(int i = 0; i < this->nproveedores; ++i){
+                for (int i = 0; i < this->nproveedores; ++i) {
                     cout << "\n[" << i << "]" << this->listaProveedores[i]->getNombre();
                 }
                 cout << "\n"; cin >> eleccion;
-                this->listaProductos[i]->setProveedor(this->listaProveedores[eleccion]);
+                this->listaProductos[posicion]->setProveedor(this->listaProveedores[eleccion]);
                 break;
             case 9:
                 cout << "\nSaliendo del modificador....";
-                break;      
+                break;
             default:
                 cout << "\nElije una opcion valida";
                 break;
             }
+            if (opcion == 9) break;
         }
     }
 }
-void ListaProductos::eliminarVencidos(){
-    int contadorVencidos = 0;
-    for(int i = 0; i < nproductos; ++i){
-        if(this->listaProductos[i]->getAnio() < 2020){
+void ListaProductos::eliminarVencidos() {
+    for (int i = 0; i < nproductos; ++i) {
+        if (this->listaProductos[i]->getAnio() < 2020) {
             delete this->listaProductos[i];
-            for(int j = i; j < nproductos; ++j){
+            for (int j = i; j < nproductos; ++j) {
                 this->listaProductos[j] = this->listaProductos[j + 1];
             }
             --i;
-            ++contadorVencidos;
+            --this->nproductos;
         }
     }
+
 }
-void ListaProductos::reporteStock(){
+void ListaProductos::reporteStock() {
     cout << "---------------- PRODUCTOS EN STOCK ----------------";
-    for(int i = 0; i < this->nproductos; ++i){
-        if(this->listaProductos[i]->getCantidad() > 0){
+    int sinstock = 0;
+    for (int i = 0; i < this->nproductos; ++i) {
+        if (this->listaProductos[i]->getCantidad() > 0) {
             this->listaProductos[i]->mostrar();
             cout << "\n--------------------------------------------";
+            ++sinstock;
         }
     }
+    if (sinstock == 0) cout << "\nNo hay productos en stock";
+
 }

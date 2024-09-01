@@ -2,15 +2,16 @@
 #include "CListaTienda.hpp"
 using namespace std;
 
-int main(){
+int main() {
 
     int opcion;
-    ListaProductos *lista = new ListaProductos();
-
-    do{
+    ListaProductos* lista = new ListaProductos();
+    do {
+        
         cout << "\n--------- FlowerFull S.A.C, ---------";
         cout << "\n[1]Insertar producto" << "\n[2]Insertar proveedor" << "\n[3]Modificar producto" << "\n[4]Elimiar productos vencidos" << "\n[5]Reporte stock" << "\n[6]Salir";
-        
+        cout << "\n-----> ";
+        cin >> opcion;
         switch (opcion)
         {
         case 1:
@@ -21,7 +22,7 @@ int main(){
             break;
         case 3:
             int i;
-            cout << "\nIndice de objeto a modificar: ";
+            cout << "\nId de objeto a modificar: ";
             cin >> i;
             lista->modificar(i);
             break;
