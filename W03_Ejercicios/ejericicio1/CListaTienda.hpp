@@ -18,6 +18,8 @@ public:
     void modificar(int);
     void eliminarVencidos();
     void reporteStock();
+    void eliminarHerbalife();
+    void reporteNatura();
 };
 ListaProductos::ListaProductos() {
     this->listaProductos = nullptr;
@@ -315,5 +317,29 @@ void ListaProductos::reporteStock() {
         }
     }
     if (sinstock == 0) cout << "\nNo hay productos en stock";
+}
 
+void ListaProductos::eliminarHerbalife(){
+    for (int i = 0; i < nproductos; ++i) {
+        if (this->listaProductos[i]->getProveedor()->getNombre() == "Herbalife") {
+            delete this->listaProductos[i];
+            for (int j = i; j < nproductos; ++j) {
+                this->listaProductos[j] = this->listaProductos[j + 1];
+            }
+            --i;
+            --this->nproductos;
+        }
+    }
+}
+void ListaProductos::reporteNatura(){
+    cout << "---------------- PRODUCTOS PROV. NATURA ----------------";
+    int sinNatura = 0;
+    for (int i = 0; i < this->nproductos; ++i) {
+        if (this->listaProductos[i]->getProveedor()->getNombre() == "Natura") {
+            this->listaProductos[i]->mostrar();
+            cout << "\n--------------------------------------------";
+            ++sinNatura;
+        }
+    }
+    if (sinNatura == 0) cout << "\nNo hay productos del proveedor Natura";
 }
