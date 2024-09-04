@@ -15,7 +15,7 @@ public:
     void eliminarIndex(int);
     void mostrar();
     void mostrar_nAnios_animal();
-    void mostrar_nAnios_afterContrato(int);
+    void mostrar_nAnios_afterContrato();
 };
 
 CArrDiagnostico::CArrDiagnostico(){
@@ -59,14 +59,36 @@ void CArrDiagnostico::mostrar(){
 }
 
 void CArrDiagnostico::mostrar_nAnios_animal(){
-    for (int i = 0; i < this->ndiagnostico; ++i){
-        if(this->ArrDiagnostico[i]->getAnimal()->getEdad() < 5)
+    cout << "\n==ANIMALES CON MENOS DE 5 ANIOS";
+    int contador = 0;
+    for (int i = 0; i < this->ndiagnostico; ++i)
+    {
+        if(this->ArrDiagnostico[i]->getAnimal()->getEdad() < 5){
             this->ArrDiagnostico[i]->mostrar();
+            ++contador;
+        }
+    }
+    if(contador == 0){
+        cout << "\n--->No se encontro ningun animal con esa caracteristica";
     }
 }
-void CArrDiagnostico::mostrar_nAnios_afterContrato(int anios){
-     for (int i = 0; i < this->ndiagnostico; ++i){
-        if(this->ArrDiagnostico[i]->getPersonal()->getFechaContrato() >= anios)
+void CArrDiagnostico::mostrar_nAnios_afterContrato(){
+    int contador = 0;
+    int anios;
+    cout << "\n==PERSONAL CON UNA FECHA DE CONTRATO DESPUES DE :";
+    cin >> anios;
+    if(anios < 1990){
+        cout << "\nFecha muy antigua, debe ser superior a 1990";
+        return;
+    }
+    for (int i = 0; i < this->ndiagnostico; ++i)
+    {
+        if(this->ArrDiagnostico[i]->getPersonal()->getAnio()>= anios){
             this->ArrDiagnostico[i]->mostrar();
+            ++contador;
+        }
+    }
+    if(contador == 0){
+        cout << "\n--->NO se encontro ningun personal con esa caracteristica";
     }
 }

@@ -28,12 +28,7 @@ int main(){
             listaDiagnostico->agregarDiagnostico(new CDiagnostico());
             break;
         case 4:
-            int x;
-            cout << "\nReporte de Personal que realizaron un diagnostico despues de x fecha:";
-            cout << "\nIngrese n: ";
-            cin >> x;
-            listaDiagnostico->mostrar_nAnios_afterContrato(x);
-            cout << "\nReporte de animales con menos de 5 anios";
+            listaDiagnostico->mostrar_nAnios_afterContrato();
             listaDiagnostico->mostrar_nAnios_animal();
             break;
         case 5:

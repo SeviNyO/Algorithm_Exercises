@@ -53,6 +53,7 @@ CAnimal *CDiagnostico::getAnimal() { return this->animal; }
 CPersonal *CDiagnostico::getPersonal() { return this->personal; }
 
 void CDiagnostico::mostrar(){
+    cout << "\n-------- DIAGNOSTICO ----------";
     cout << "\nFecha: " << this->fecha << "\nDescripcion: " << this->descripcion;
     cout << "\n----> Animal";
     animal->mostrar();

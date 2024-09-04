@@ -51,7 +51,11 @@ void CArrPersonal::eliminarIndex(int indice){
     this->ArrPersonal = aux;
 }
 void CArrPersonal::mostrar(){
-    for (int i = 0; i < this->npersonal; ++i){
+    cout << "\n--------- PERSONAL EXISTENTE ----------";
+    for (int i = 0; i < this->npersonal; ++i)
+    {
+        cout << "\nPersonal #" << i;
         this->ArrPersonal[i]->mostrar();
+        cout << "\n-------------------";
     }
 }

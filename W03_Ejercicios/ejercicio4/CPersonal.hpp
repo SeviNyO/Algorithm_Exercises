@@ -15,6 +15,7 @@ public:
     void setFechaContrato(int);
     string getNombre();
     string getApellido();
+    int getAnio();
     int getFechaContrato();
     void mostrar();
     int fechaRandom();
@@ -43,8 +44,12 @@ void CPersonal::mostrar(){
     cout << "\nNombre: " << this->nombre << "\nApellido: " << this->apellido << "\nFecha Contrato: " << this->fechaContrato;
 }
 int CPersonal::fechaRandom(){
-    int anio = rand() % (2024 - 1990 + 1) + 1900;
+    int anio = rand() % (2024 - 1990 + 1) + 1990;
     int mes = rand() % 12 + 1;
     int dia = rand() % 28 + 1;
     return (anio * 10000) + (mes * 100) + dia;
+}
+
+int CPersonal::getAnio(){
+    return this->fechaContrato / 10000;
 }
