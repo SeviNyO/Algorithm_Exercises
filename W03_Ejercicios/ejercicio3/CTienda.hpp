@@ -14,11 +14,12 @@ private:
 public:
     Tienda();
     ~Tienda();
-    void comprarProducto(int, int);
-    void comprobarStockProducto();
+    void comprarProducto(Compra*,int, int);
+    bool comprobarStockProducto(int, int);
     void realizarCompra();
     void registrar();
     void logear();
+    void dejarProducto(Compra*, int id, int cantidad);
     int getClienteActual();
     void mostrarStock();
     void resumenCompras();
@@ -33,6 +34,10 @@ Tienda::~Tienda(){
     delete compras;
     delete clientes;
     delete stock;
+}
+bool Tienda::comprobarStockProducto(int codigo, int cantidad){
+    Producto *aux = stock->obtenerProductoCodigo(codigo);
+    return (aux->getCan() >= cantidad);
 }
 int Tienda::getClienteActual(){
     return this->dniClienteActual;
@@ -70,8 +75,24 @@ void Tienda::logear(){
         }
     }
 }
+void Tienda::comprarProducto(Compra* comprita, int codigo, int cantidad)
+{
+    if(!comprobarStockProducto(codigo, cantidad)){
+        cout << "\nSin stock suficiente...";
+        return;
+    }
+    Producto *producto = stock->obtenerProductoCodigo(codigo);
+    Producto *productoComprado = producto->duplicar(cantidad);
+    comprita->agregarProducto(productoComprado);
+    producto->setCantidad(producto->getCan() - cantidad);
+}
+void Tienda::dejarProducto(Compra* comprita, int codigo, int cantidad){
+    Producto *producto = stock->obtenerProductoCodigo(codigo);
+    comprita->eliminarProducto(codigo, cantidad);
+}
 void Tienda::realizarCompra(){
     int codigo, cantidad, eleccion;
+    Compra *nuevacompra = new Compra();
     cout << "----> MENU DE COMPRA" << "\n[1] Elegir producto" << "\n[2]Dejar Producto" << "\n[3] Mostrar carrito actual" << "\n[4]Salir..." << "\nUsuario actual: " << this->getClienteActual() << ": ";
     cin >> eleccion;
     switch (eleccion)
@@ -79,8 +100,12 @@ void Tienda::realizarCompra(){
     case 1:
         cout << "\nIngrese la ID:";
         cin >> codigo;
+        cout << "\nIngrese la cantidad a comprar:";
+        cin >> cantidad;
+        comprarProducto(nuevacompra, codigo, cantidad);
     case 2:
     case 3:
+        nuevacompra->mostrar();
     case 4:
     default:
         cout << "\nOpcion no valida";
@@ -88,6 +113,3 @@ void Tienda::realizarCompra(){
     }
 }
 
-void Tienda::comprarProducto(int codigo, int cantidad){
-
-}

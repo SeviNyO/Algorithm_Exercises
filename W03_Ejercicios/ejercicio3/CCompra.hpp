@@ -14,6 +14,9 @@ public:
     Compra();
     ~Compra();
     int getId();
+    void agregarProducto(Producto*);
+    void eliminarProducto(int id, int cantidad);
+    Producto *accederPorId(int);
     void mostrar();
 };
 
@@ -22,6 +25,16 @@ Compra::~Compra(){}
 
 int Compra::getId(){
     return this->IdCompra;
+}
+void Compra::agregarProducto(Producto* produc){
+    productos->agregarProducto(produc);
+}
+void Compra::eliminarProducto(int id, int cantidad){
+    productos->eliminarProducto(id);
+    productos->obtenerProductoCodigo(id)->setCantidad(cantidad);
+}
+Producto* Compra::accederPorId(int id){
+    
 }
 void Compra::mostrar(){
     cout << "\nId Compra: " << this->IdCompra << " - Fecha: " << this->Fecha;

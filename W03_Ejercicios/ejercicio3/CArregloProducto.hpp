@@ -12,6 +12,7 @@ public:
     ~ArregloProducto();
     void mostrar();
     int getTamanio();
+    Producto *obtenerProductoCodigo(int);
     void agregarProducto(Producto *);
     void eliminarProducto(int);
 };
@@ -28,6 +29,13 @@ ArregloProducto::~ArregloProducto(){
 }
 int ArregloProducto::getTamanio(){
     return this->nproductos;
+}
+Producto* ArregloProducto::obtenerProductoCodigo(int codigo){
+    for (int i = 0; i < this->nproductos;++i){
+        if(productos[i]->getCod() == codigo){
+            return productos[i];
+        }
+    }
 }
 void ArregloProducto::mostrar(){
     cout << "------------ LISTA PRODUCTOS -----------";

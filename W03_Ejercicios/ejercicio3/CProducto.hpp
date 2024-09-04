@@ -17,6 +17,8 @@ public:
     void setMarca(string);
     void setPrecio(double);
     int getCod();
+    int getCan();
+    Producto* duplicar(int);
     void mostrar();
 };
 
@@ -45,6 +47,19 @@ void Producto::setPrecio(double ipre){
 int Producto::getCod(){
     return this->codProducto;
 }
+int Producto::getCan(){
+    return this->cantidad;
+}
 void Producto::mostrar(){
     cout << "\nCodigo producto: " << this->codProducto << "\nNombre: " << this->nombre << "\nCantidad: " << this->cantidad << "\nTipo: " << this->tipo << "\nMarca: " << this->marca << "\nPrecio: " << this->precio;
+}
+Producto* Producto::duplicar(int cantidad){
+    Producto *duplicado = new Producto();
+    duplicado->nombre = this->nombre;
+    duplicado->cantidad = cantidad;
+    duplicado->marca = this->marca;
+    duplicado->precio = this->precio;
+    duplicado->codProducto = this->codProducto;
+    duplicado->tipo = this->tipo;
+    return duplicado;
 }
