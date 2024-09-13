@@ -1,3 +1,27 @@
-.vscode/
-.vs/.vs/
-.vscode/
+# Ignorar carpetas de Visual Studio
+.vs/
+*.vsidx
+
+# Ignorar archivos de compilación
+*.obj
+*.exe
+*.dll
+*.log
+*.pdb
+*.ipch
+*.ilk
+
+# Ignorar carpetas de compilación
+x64/
+Debug/
+Release/
+build/
+
+# Ignorar archivos de proyecto de Visual Studio
+*.vcxproj*
+*.sln
+*.user
+
+# Ignorar archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
