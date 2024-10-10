@@ -1,0 +1,96 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Algorithm_Exercises",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ejercicio01::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ejercicio01-Debug-b092a45c4f47f331d2f8.json",
+					"name" : "ejercicio01",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ejercicio02::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ejercicio02-Debug-d8f147f5b93a10030f67.json",
+					"name" : "ejercicio02",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ejercicio03::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ejercicio03-Debug-6c42b9cdc380f4cd8c6d.json",
+					"name" : "ejercicio03",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ejercicio04::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ejercicio04-Debug-ef9d4afefbd88d47acfe.json",
+					"name" : "ejercicio04",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ejercicio_1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ejercicio_1-Debug-ba8279bc7719611b74f9.json",
+					"name" : "ejercicio_1",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug",
+		"source" : "/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

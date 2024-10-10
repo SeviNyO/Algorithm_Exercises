@@ -1,0 +1,7 @@
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio01.dir
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio02.dir
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio03.dir
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio04.dir
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio_1.dir
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/rebuild_cache.dir
