@@ -1,27 +1,20 @@
-# Ignorar carpetas de Visual Studio
-.vs/
-*.vsidx
-
-# Ignorar archivos de compilación
-*.obj
+# Ignorar archivos de compilación de C++
+*.o
 *.exe
 *.dll
-*.log
-*.pdb
-*.ipch
-*.ilk
+*.so
+*.dSYM
 
-# Ignorar carpetas de compilación
-x64/
-Debug/
-Release/
-build/
-
-# Ignorar archivos de proyecto de Visual Studio
-*.vcxproj*
-*.sln
+# Ignorar archivos de configuración de IDE
+.idea/
+.vs/
 *.user
+*.sln
+*.vcxproj*
 
-# Ignorar archivos generados por el sistema operativo
-.DS_Store
-Thumbs.db
+# Ignorar archivos de log
+*.log
+
+# Ignorar directorios de construcción
+cmake-build-debug/
+build/
