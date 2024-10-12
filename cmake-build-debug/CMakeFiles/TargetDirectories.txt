@@ -3,5 +3,8 @@
 /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio03.dir
 /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio04.dir
 /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio_1.dir
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio_2.dir
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio_3.dir
+/home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/ejercicio_4.dir
 /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug/CMakeFiles/rebuild_cache.dir

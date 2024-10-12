@@ -55,6 +55,12 @@ build CMakeFiles/ejercicio01.dir/POO/Ejercicio_1/Ejercicio_1/main.cpp.o: CXX_COM
   OBJECT_DIR = CMakeFiles/ejercicio01.dir
   OBJECT_FILE_DIR = CMakeFiles/ejercicio01.dir/POO/Ejercicio_1/Ejercicio_1
 
+build CMakeFiles/ejercicio01.dir/competitive_programming/ejercicio_2.cpp.o: CXX_COMPILER__ejercicio01_unscanned_Debug /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/competitive_programming/ejercicio_2.cpp || cmake_object_order_depends_target_ejercicio01
+  DEP_FILE = CMakeFiles/ejercicio01.dir/competitive_programming/ejercicio_2.cpp.o.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/ejercicio01.dir
+  OBJECT_FILE_DIR = CMakeFiles/ejercicio01.dir/competitive_programming
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ejercicio01
@@ -63,7 +69,7 @@ build CMakeFiles/ejercicio01.dir/POO/Ejercicio_1/Ejercicio_1/main.cpp.o: CXX_COM
 #############################################
 # Link the executable ejercicio01
 
-build ejercicio01: CXX_EXECUTABLE_LINKER__ejercicio01_Debug CMakeFiles/ejercicio01.dir/POO/Ejercicio_1/Ejercicio_1/main.cpp.o
+build ejercicio01: CXX_EXECUTABLE_LINKER__ejercicio01_Debug CMakeFiles/ejercicio01.dir/POO/Ejercicio_1/Ejercicio_1/main.cpp.o CMakeFiles/ejercicio01.dir/competitive_programming/ejercicio_2.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/ejercicio01.dir
   POST_BUILD = :
@@ -195,6 +201,99 @@ build ejercicio_1: CXX_EXECUTABLE_LINKER__ejercicio_1_Debug CMakeFiles/ejercicio
   TARGET_FILE = ejercicio_1
   TARGET_PDB = ejercicio_1.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target ejercicio_2
+
+
+#############################################
+# Order-only phony target for ejercicio_2
+
+build cmake_object_order_depends_target_ejercicio_2: phony || .
+
+build CMakeFiles/ejercicio_2.dir/competitive_programming/ejercicio_2.cpp.o: CXX_COMPILER__ejercicio_2_unscanned_Debug /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/competitive_programming/ejercicio_2.cpp || cmake_object_order_depends_target_ejercicio_2
+  DEP_FILE = CMakeFiles/ejercicio_2.dir/competitive_programming/ejercicio_2.cpp.o.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/ejercicio_2.dir
+  OBJECT_FILE_DIR = CMakeFiles/ejercicio_2.dir/competitive_programming
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target ejercicio_2
+
+
+#############################################
+# Link the executable ejercicio_2
+
+build ejercicio_2: CXX_EXECUTABLE_LINKER__ejercicio_2_Debug CMakeFiles/ejercicio_2.dir/competitive_programming/ejercicio_2.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/ejercicio_2.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = ejercicio_2
+  TARGET_PDB = ejercicio_2.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target ejercicio_3
+
+
+#############################################
+# Order-only phony target for ejercicio_3
+
+build cmake_object_order_depends_target_ejercicio_3: phony || .
+
+build CMakeFiles/ejercicio_3.dir/competitive_programming/ejercicio_3.cpp.o: CXX_COMPILER__ejercicio_3_unscanned_Debug /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/competitive_programming/ejercicio_3.cpp || cmake_object_order_depends_target_ejercicio_3
+  DEP_FILE = CMakeFiles/ejercicio_3.dir/competitive_programming/ejercicio_3.cpp.o.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/ejercicio_3.dir
+  OBJECT_FILE_DIR = CMakeFiles/ejercicio_3.dir/competitive_programming
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target ejercicio_3
+
+
+#############################################
+# Link the executable ejercicio_3
+
+build ejercicio_3: CXX_EXECUTABLE_LINKER__ejercicio_3_Debug CMakeFiles/ejercicio_3.dir/competitive_programming/ejercicio_3.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/ejercicio_3.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = ejercicio_3
+  TARGET_PDB = ejercicio_3.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target ejercicio_4
+
+
+#############################################
+# Order-only phony target for ejercicio_4
+
+build cmake_object_order_depends_target_ejercicio_4: phony || .
+
+build CMakeFiles/ejercicio_4.dir/competitive_programming/ejercicio_4.cpp.o: CXX_COMPILER__ejercicio_4_unscanned_Debug /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/competitive_programming/ejercicio_4.cpp || cmake_object_order_depends_target_ejercicio_4
+  DEP_FILE = CMakeFiles/ejercicio_4.dir/competitive_programming/ejercicio_4.cpp.o.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/ejercicio_4.dir
+  OBJECT_FILE_DIR = CMakeFiles/ejercicio_4.dir/competitive_programming
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target ejercicio_4
+
+
+#############################################
+# Link the executable ejercicio_4
+
+build ejercicio_4: CXX_EXECUTABLE_LINKER__ejercicio_4_Debug CMakeFiles/ejercicio_4.dir/competitive_programming/ejercicio_4.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/ejercicio_4.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = ejercicio_4
+  TARGET_PDB = ejercicio_4.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -229,7 +328,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/seven707/Documentos/Algoritmos_Practica/Algorithm_Exercises/cmake-build-debug
 
-build all: phony ejercicio01 ejercicio02 ejercicio03 ejercicio04 ejercicio_1
+build all: phony ejercicio01 ejercicio02 ejercicio03 ejercicio04 ejercicio_1 ejercicio_2 ejercicio_3 ejercicio_4
 
 # =============================================================================
 # Built-in targets
